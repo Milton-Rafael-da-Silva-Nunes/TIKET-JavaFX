@@ -1,34 +1,32 @@
-package model.Entidade.Cliente;
-
-import java.util.Objects;
+package model.entidades;
 
 /**
  *
  * @author RafaelNunes
  */
-public class Cliente {
+public class Socio {
     
-    private Integer id;
-    private String nome;
-    private String cpfCnpj;
-    private String endereco;
-    private String bairro;
-    private String cep;
-    private String cidade;
-    private String estado;
+     private Integer id;
+     private String nome;
+     private String endereco;
+     private String bairro;
+     private String cep;
+     private String cidade;
+     private String estado;
+     private String contato;
 
-    public Cliente() {
+    public Socio() {
     }
 
-    public Cliente(Integer id, String nome, String cpfCnpj, String endereco, String bairro, String cep, String cidade, String estado) {
+    public Socio(Integer id, String nome, String endereco, String bairro, String cep, String cidade, String estado, String contato) {
         this.id = id;
         this.nome = nome;
-        this.cpfCnpj = cpfCnpj;
         this.endereco = endereco;
         this.bairro = bairro;
         this.cep = cep;
         this.cidade = cidade;
         this.estado = estado;
+        this.contato = contato;
     }
 
     public Integer getId() {
@@ -45,14 +43,6 @@ public class Cliente {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getCpfCnpj() {
-        return cpfCnpj;
-    }
-
-    public void setCpfCnpj(String cpfCnpj) {
-        this.cpfCnpj = cpfCnpj;
     }
 
     public String getEndereco() {
@@ -95,33 +85,16 @@ public class Cliente {
         this.estado = estado;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 53 * hash + Objects.hashCode(this.id);
-        return hash;
+    public String getContato() {
+        return contato;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Cliente other = (Cliente) obj;
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
-        return true;
+    public void setContato(String contato) {
+        this.contato = contato;
     }
 
     @Override
     public String toString() {
         return id + " - " + nome;
-    }    
+    }
 }
