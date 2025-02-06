@@ -1,0 +1,5 @@
+IP:localhost
+DB:tiket_socio
+USER:root
+KEY:03310103
+PORT:3306
