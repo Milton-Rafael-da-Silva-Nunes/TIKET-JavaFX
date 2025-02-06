@@ -1,0 +1,34 @@
+create database tiket_socio;
+
+-- SOCIO
+CREATE TABLE `tiket_socio`.`socio` (
+  `ID` INTEGER NOT NULL AUTO_INCREMENT,
+  `Codigo` VARCHAR(20) NOT NULL,
+  `Nome` VARCHAR(80) NOT NULL,
+  `Endereco` VARCHAR(80) NOT NULL,
+  `Bairro` VARCHAR(50) NOT NULL,
+  `Cep` VARCHAR(20) NOT NULL,
+  `Contato` VARCHAR(20) NOT NULL,
+  `Cidade` VARCHAR(45) NOT NULL,
+  `Estado` VARCHAR(15) NOT NULL,
+  `Cadastro` DATETIME NOT NULL,
+  `Alteracao` DATETIME NOT NULL,
+  `Usuaio_Alteracao` INTEGER,
+  PRIMARY KEY (`id`)
+)
+ENGINE = InnoDB;
+
+-- CONVIDADO
+CREATE TABLE `tiket_socio`.`convidado` (
+  `ID` INTEGER NOT NULL AUTO_INCREMENT,
+  `IDSocio` INTEGER NOT NULL,
+  `Nome` VARCHAR(80) NOT NULL,
+  `Cidade` VARCHAR(50) NOT NULL,
+  `Estado` VARCHAR(15) NOT NULL,
+  `Contato` VARCHAR(15) NOT NULL,
+  `Cadastro` DATETIME NOT NULL,
+  `Alteracao` DATETIME NOT NULL,
+  `Usuaio_Alteracao` INTEGER,
+  PRIMARY KEY (`id`)
+)
+ENGINE = InnoDB;
