@@ -12,7 +12,7 @@ CREATE TABLE `tiket_socio`.`socio` (
   `Cidade` VARCHAR(45) NOT NULL,
   `Estado` VARCHAR(15) NOT NULL,
   `Cadastro` DATETIME NOT NULL,
-  `Alteracao` DATETIME NOT NULL,
+  `Alteracao` DATETIME,
   `Usuaio_Alteracao` INTEGER,
   PRIMARY KEY (`id`)
 )
@@ -27,8 +27,70 @@ CREATE TABLE `tiket_socio`.`convidado` (
   `Estado` VARCHAR(15) NOT NULL,
   `Contato` VARCHAR(15) NOT NULL,
   `Cadastro` DATETIME NOT NULL,
-  `Alteracao` DATETIME NOT NULL,
+  `Alteracao` DATETIME,
   `Usuaio_Alteracao` INTEGER,
   PRIMARY KEY (`id`)
 )
 ENGINE = InnoDB;
+
+-- USUARIO
+CREATE TABLE `tiket_socio`.`usuario` (
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `Nome` VARCHAR(80) NOT NULL,
+  `Senha` VARCHAR(20) NOT NULL,
+  `Cadastro` DATETIME NOT NULL,
+  `Alteracao` DATETIME,
+  PRIMARY KEY (`id`)
+)
+ENGINE = InnoDB;
+
+-- INSERT SOCIO
+INSERT INTO `tiket_socio`.`socio`
+(`Codigo`, `Nome`, `Endereco`, `Bairro`, `Cep`, `Contato`, `Cidade`, `Estado`, `Cadastro`, `Alteracao`, `Usuaio_Alteracao`)
+VALUES
+('SOC001', 'Carlos Silva', 'Rua das Flores, 123', 'Centro', '01010-000', '11999990000', 'São Paulo', 'SP', NOW(), NULL, NULL),
+('SOC002', 'Ana Souza', 'Av. Paulista, 1000', 'Bela Vista', '01310-000', '11888887777', 'São Paulo', 'SP', NOW(), NULL, NULL),
+('SOC003', 'João Pereira', 'Rua XV de Novembro, 500', 'Centro', '80020-310', '41987654321', 'Curitiba', 'PR', NOW(), NULL, NULL),
+('SOC004', 'Mariana Castro', 'Rua dos Pinheiros, 45', 'Pinheiros', '05422-010', '21999887766', 'Rio de Janeiro', 'RJ', NOW(), NULL, NULL),
+('SOC005', 'Roberto Lima', 'Av. Atlântica, 200', 'Copacabana', '22041-001', '31988776655', 'Belo Horizonte', 'MG', NOW(), NULL, NULL),
+('SOC006', 'Fernanda Oliveira', 'Rua das Acácias, 78', 'Jardim Botânico', '22460-030', '21987654321', 'Rio de Janeiro', 'RJ', NOW(), NULL, NULL),
+('SOC007', 'Ricardo Mendes', 'Av. Brasil, 900', 'Centro', '01020-001', '11999885544', 'São Paulo', 'SP', NOW(), NULL, NULL),
+('SOC008', 'Tatiane Freitas', 'Rua Ceará, 88', 'Funcionários', '30150-311', '31999998888', 'Belo Horizonte', 'MG', NOW(), NULL, NULL),
+('SOC009', 'Eduardo Santos', 'Rua das Palmeiras, 10', 'Boa Viagem', '51021-100', '81998887766', 'Recife', 'PE', NOW(), NULL, NULL),
+('SOC010', 'Luiza Martins', 'Rua das Pedras, 5', 'Lapa', '20030-080', '21999997777', 'Rio de Janeiro', 'RJ', NOW(), NULL, NULL);
+
+
+-- INSERT CONVIDADOS
+INSERT INTO `tiket_socio`.`convidado`
+(`IDSocio`, `Nome`, `Cidade`, `Estado`, `Contato`, `Cadastro`, `Alteracao`, `Usuaio_Alteracao`) 
+VALUES
+(1, 'Lucas Silva', 'São Paulo', 'SP', '11988887777', NOW(), NULL, NULL),
+(1, 'Beatriz Lima', 'São Paulo', 'SP', '11977776666', NOW(), NULL, NULL),
+(2, 'Fernando Souza', 'São Paulo', 'SP', '11889966554', NOW(), NULL, NULL),
+(2, 'Juliana Costa', 'São Paulo', 'SP', '11887766555', NOW(), NULL, NULL),
+(3, 'Rafael Pereira', 'Curitiba', 'PR', '41999998888', NOW(), NULL, NULL),
+(3, 'Carla Mendes', 'Curitiba', 'PR', '41988887777', NOW(), NULL, NULL),
+(4, 'Gabriel Castro', 'Rio de Janeiro', 'RJ', '21977778888', NOW(), NULL, NULL),
+(4, 'Amanda Oliveira', 'Rio de Janeiro', 'RJ', '21966667777', NOW(), NULL, NULL),
+(5, 'Thiago Lima', 'Belo Horizonte', 'MG', '31999995555', NOW(), NULL, NULL),
+(5, 'Vanessa Santos', 'Belo Horizonte', 'MG', '31988884444', NOW(), NULL, NULL),
+(6, 'Pedro Henrique', 'Rio de Janeiro', 'RJ', '21999994444', NOW(), NULL, NULL),
+(6, 'Mariana Nunes', 'Rio de Janeiro', 'RJ', '21977773333', NOW(), NULL, NULL),
+(7, 'Felipe Mendes', 'São Paulo', 'SP', '11966662222', NOW(), NULL, NULL),
+(7, 'Bianca Rocha', 'São Paulo', 'SP', '11955551111', NOW(), NULL, NULL),
+(8, 'Gustavo Freitas', 'Belo Horizonte', 'MG', '31977770000', NOW(), NULL, NULL),
+(8, 'Lívia Campos', 'Belo Horizonte', 'MG', '31966668888', NOW(), NULL, NULL),
+(9, 'André Silva', 'Recife', 'PE', '81955554444', NOW(), NULL, NULL),
+(9, 'Patrícia Almeida', 'Recife', 'PE', '81944443333', NOW(), NULL, NULL),
+(10, 'Diego Martins', 'Rio de Janeiro', 'RJ', '21922221111', NOW(), NULL, NULL),
+(10, 'Camila Farias', 'Rio de Janeiro', 'RJ', '21911110000', NOW(), NULL, NULL);
+
+-- INSERT USUARIO
+INSERT INTO `tiket_socio`.`usuario`
+(`Nome`, `Senha`, `Cadastro`, `Alteracao`) 
+VALUES
+('João Oliveira', 'senha123', NOW(), NULL),
+('Maria Santos', '123senha', NOW(), NULL),
+('Carlos Souza', 'senha456', NOW(), NULL),
+('Patrícia Lima', 'senha789', NOW(), NULL),
+('Felipe Costa', 'senha000', NOW(), NULL);
